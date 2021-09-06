@@ -23,7 +23,7 @@ forLoopPoem(myTitle, myArticleArray, myObject.adjectives, myObject.nouns)
 
 // while loop poem:
 let counter = 0
-while (counter < 5) {
+while (counter < 6) {
     W(getRandomItem(myArticleArray) + ' ' + getRandomItem(myObject.adjectives) + ' ' + getRandomItem(myObject.nouns))
     counter++
 }
