@@ -9,6 +9,7 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
+//Button on home page
 function linkToProject() {
-    window.open("https://fmundergrad.hunter.cuny.edu/~laik/finalproject/index.html", "_blank"); 
+    window.open("https://fmundergrad.hunter.cuny.edu/~laik/finalproject/index.html", "_blank");
 }
