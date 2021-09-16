@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.scale-transition {
+    transition: transform 250ms;
+}
+
+.scale-transition:hover {
+    transform: scale(2)
+}
+
+canvas {
+    padding-left: 500px;
+}
+
+canvas:hover {
+    transform: rotateX(40deg);
+    animation: flip 2s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+    }
+
+    100% {
+        transform: rotateX(50deg);
+    }
+}
+
+.name:hover {
+    animation: rot 3s infinite;
+}
+
+@keyframes rot {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
