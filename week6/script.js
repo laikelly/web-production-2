@@ -46,8 +46,12 @@ $(function() {
                 else{
                     $("#show-details").append('<ul> Aired: ' + data[i].show.premiered + ' to ' + data[i].show.ended + '</ul>')
                 }
-
+                if (data[i].show.summary == null) {
+                    $("#show-details").append('<p> Summary Unavailable </p>')
+                }
+                else{
                     $("#show-details").append('<p>' + data[i].show.summary + '</p>')
+                }
 
                 let showID = data[i].show.id
                 $.getJSON(`https://api.tvmaze.com/shows/${showID}/cast`, function(info) {
