@@ -25,18 +25,13 @@ $(document).ready(function() {
                 self.removeClass('open');
             }
         });
-        //redirects page
-        self.keypress(function(e) {
-            var code = e.keyCode ? e.keyCode : e.which;
-            if (code.toString() == 13) {
-                QLSearch(); // call the function to redirect to another page
-                return false;
-            }
+    });
 
-        });
-        // Function that redirect the user to another page
-        function QLSearch() {
+    //redirects page
+    $('#title').keydown(function(e) {
+        if (e.which === 13) {
             window.location = "https://laikelly.github.io/web-production-2/week6/index.html";
+            return false;
         }
     });
 
@@ -44,15 +39,14 @@ $(document).ready(function() {
 
 //api js
 $(function() {
-        let showTitle = $('#title').val();
-        if (showTitle != '') {
-                getShow(showTitle)
-              }
-              //reset the input
-            // $('#title').val('')
+    let showTitle = $('#title').val();
+    if (showTitle != '') {
+        getShow(showTitle)
+    }
+    //reset the input
+    $('#title').val('')
 
-
-    function getShow(showTitle){
+    function getShow(showTitle) {
         $.getJSON(`https://api.tvmaze.com/search/shows?q=${showTitle}`, function(data) {
             for (i = 0; i < data.length; i++) { //goes through the list of results
                 // console.log('title: ', data[i].show.name)
