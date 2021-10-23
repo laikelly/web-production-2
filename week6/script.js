@@ -36,7 +36,7 @@ $(document).ready(function() {
         });
         // Function that redirect the user to another page
         function QLSearch() {
-            window.location = "file:///Users/kellylai/Documents/MEDP331/web-production-2/week6/index.html";
+            window.location = "https://laikelly.github.io/web-production-2/week6/index.html";
         }
     });
 
