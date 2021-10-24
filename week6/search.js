@@ -30,7 +30,8 @@ $(document).ready(function() {
     //redirects page
     $('#title').keypress(function(e) {
         if (e.which === 13) {
-            window.location = "https://laikelly.github.io/web-production-2/week6/index.html?show_title=" + $('#title').val();
+            window.location = "file:///Users/kellylai/Documents/MEDP331/web-production-2/week6/index.html?show_title=" + $('#title').val();
+            // window.location = "https://laikelly.github.io/web-production-2/week6/index.html?show_title=" + $('#title').val();
             $('#title').val('')
             return false;
         }
