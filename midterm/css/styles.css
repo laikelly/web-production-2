@@ -1,5 +1,13 @@
+#search-bar{
+    padding: 100px;
+}
 
 #shows img, #show img{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+/* border: 8px ridge blue; */
+padding: 5px;
   width:50%;
   /* height:50%; */
 }
