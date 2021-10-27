@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>TeleVsearch</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
+    <link rel="shortcut icon" type="image/png" href="https://icons-for-free.com/iconfiles/png/512/display+electronics+media+retro+television+tv+icon-1320195727084144796.png"/>
+</head>
+
+<body>
     <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">TeleVsearch</a>
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">TeleVsearch</a>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <div class="container">
-    	<div class="jumbotron">
-	    	<h3 class="text-center">Search For Any TV show</h3>
+    <div class="container" id="search_page">
+        <div class="jumbotron">
+            <h1 class="text-center">Search For Any TV show</h1>
             <br>
-	    	<form id="searchForm">
-	    		<input type="text" class="form-control" id="searchText" placeholder="Search Shows...">
-	    	</form>
+            <form id="searchForm">
+                <input type="text" class="form-control" id="searchText" placeholder="Search Shows...">
+            </form>
+            <section id="section04" class="demo">
+                <a href="#shows_page"><span></span>see results</a>
+            </section>
 
-	    </div>
+        </div>
     </div>
 
-    <div class="container">
-        <br><br><br>
-      <div id="shows" class="row"></div>
+
+    <div class="container" id="shows_page">
+        <br><br>
+        <div id="shows" class="row"></div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="script.js"></script>
-  </body>
+    <script src="script.js"></script>
+    <script>
+        $(function() {
+            $('a[href*=#]').on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 500, 'linear');
+            });
+        });
+    </script>
+</body>
+
 </html>
