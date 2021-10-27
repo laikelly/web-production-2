@@ -3,6 +3,7 @@ $(document).ready(function() {
         let searchText = $('#searchText').val();
         $('#shows').empty()
         getShows(searchText);
+        $('#scroll_section').append(`<a href="#shows_page"><span></span>see results</a>`)
         e.preventDefault();
 
     });
