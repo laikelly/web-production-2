@@ -1,23 +1,134 @@
-#search-bar{
+html,
+.root {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+x body {
+    font: menu;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    padding-top: 4rem;
+    width: 50%;
+    margin: auto;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+details[open] summary~* {
+    animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-top: 1px solid black;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 300;
+    list-style: none;
+}
+
+details summary:after {
+    content: "+";
+    color: black;
+    position: absolute;
+    font-size: 1.75rem;
+    line-height: 0;
+    margin-top: 0.75rem;
+    right: 0;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+}
+
+details[open] summary:after {
+    transform: rotate(45deg);
+    font-size: 2rem;
+}
+
+details summary {
+    outline: 0;
+}
+
+details p {
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+    padding-top: 1rem;
+}
+
+/* cast section */
+.circular--portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.circular--portrait img {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* shows section */
+#search-bar {
     padding: 100px;
 }
 
-#shows img, #show img{
+#shows img, #show img {
     display: block;
-margin-left: auto;
-margin-right: auto;
-/* border: 8px ridge blue; */
-padding: 5px;
-  width:50%;
-  /* height:50%; */
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 8px ridge blue; */
+    padding: 5px;
+    width: 50%;
+    /* height:50%; */
 }
 
-@media(min-width:960px){
-  #shows .col-md-3 .well{
-    height: 390px;
-  }
+.thumbnail {
+    width: 500px;
+}
 
-  #shows .col-md-3 img{
-    height:240px;
-  }
+@media(min-width:960px) {
+    #shows .col-md-3 .well {
+        height: 390px;
+    }
+
+    #shows .col-md-3 img {
+        height: 240px;
+    }
 }

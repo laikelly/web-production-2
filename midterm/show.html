@@ -19,7 +19,38 @@
     </nav>
 
     <div class="container">
-        <div id="show" class="well"></div>
+        <div class="row">
+            <div class="col-sm-4 text-center" id="show">
+                <h2 id="show_name"></h2>
+            </div>
+            <div class="col-md-8">
+                <ul class="list-group">
+                    <li class="list-group-item" id="language"><strong>Language:</strong> </li>
+                    <li class="list-group-item" id="genres"><strong>Genre:</strong> </li>
+                    <li class="list-group-item" id="rating"><strong>Rated:</strong> </li>
+                    <li class="list-group-item" id="release_date"><strong>Released:</strong> </li>
+                </ul>
+                <br>
+                <details>
+                    <summary>Summary</summary>
+                    <p id="summary">
+
+                    </p>
+                </details>
+                <details>
+                    <summary>Casts</summary>
+                    <div id="casts" class="row">
+                        
+                        </div>
+
+
+
+
+                </details>
+                <br>
+                <a href="index.html" class="btn btn-outline-primary btn-sm">Back To Search</a>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -27,6 +58,7 @@
     <script src="script.js"></script>
     <script>
         getShow();
+        getCasts();
     </script>
 </body>
 

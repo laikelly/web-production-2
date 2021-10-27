@@ -39,13 +39,6 @@ function getShows(searchText) {
         })
 }
 
-// <div class="card border-primary mb-3" style="max-width: 20rem;">
-//   <div class="card-header">Header</div>
-//   <div class="card-body">
-//     <h4 class="card-title">Primary card title</h4>
-//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//   </div>
-
 function showSelected(id) { //grabs show's id and present info on seperate page
     console.log(id)
     sessionStorage.setItem('showId', id);
@@ -68,50 +61,55 @@ function getShow() {
             let show = data
             if (show.image == null) { //checks for null values
                 replaceNull(show)
-                $('#show').append(`<div class="row">
-                      <div class="col-sm-4 text-center">
-                        <h2>${show.name}</h2>
-                        <img src="img/img_not_available.png" class="thumbnail">
-                      </div>
-                      <div class="col-md-8">
-                        <ul class="list-group">
-                        <li class="list-group-item"><strong>Language:</strong> ${show.language}</li>
-                          <li class="list-group-item"><strong>Genre:</strong> ${show.genres}</li>
-                          <li class="list-group-item"><strong>Rated:</strong> ${show.rating.average}</li>
-                          <li class="list-group-item"><strong>Released:</strong> ${show.premiered} to ${show.ended}</li>
-                        </ul>
-                        <br>
-                        <h3>Summary</h3>
-                        ${show.summary}
-                        <hr>
-                        <a href="http://imdb.com/title/${show.externals.imdb}" target="_blank" class="btn btn-primary">View IMDB</a>
-                        <a href="index.html" class="btn btn-default">Go Back To Search</a>
-                      </div>
-                    </div>`)
+                $('#show_name').append(`${show.name}`)
+                $('#show').append(`<img src="img/img_not_available.png" class="thumbnail">`)
+                $('#language').append(`${show.language}`)
+                $('#genres').append(`${show.genres}`)
+                if (show.rating.average == null) {
+                    $('#rating').append(`N/A`)
+                }
+                else{
+                    $('#rating').append(`${show.rating.average}`)
+                }
+                $('#release_date').append(`${show.premiered} to ${show.ended} `)
+                $('#summary').append(` ${show.summary} `)
             } else {
                 replaceNull(show)
-                $('#show').append(`<div class="row">
-                      <div class="col-sm-4 text-center">
-                        <h2>${show.name}</h2>
-                        <img src="${show.image.medium}" class="thumbnail">
-                      </div>
-                      <div class="col-md-8">
-                        <ul class="list-group">
-                        <li class="list-group-item"><strong>Language:</strong> ${show.language}</li>
-                          <li class="list-group-item"><strong>Genre:</strong> ${show.genres}</li>
-                          <li class="list-group-item"><strong>Rated:</strong> ${show.rating.average}</li>
-                          <li class="list-group-item"><strong>Released:</strong> ${show.premiered} to ${show.ended}</li>
-                        </ul>
-                        <br>
-                        <h3>Summary</h3>
-                        ${show.summary}
-                        <hr>
-                        <a href="http://imdb.com/title/${show.externals.imdb}" target="_blank" class="btn btn-primary">View IMDB</a>
-                        <a href="index.html" class="btn btn-default">Go Back To Search</a>
-                      </div>
-                    </div>`)
+                $('#show_name').append(`${show.name}`)
+                $('#show').append(`<img src="${show.image.medium}" class="thumbnail">`)
+                $('#language').append(`${show.language}`)
+                $('#genres').append(`${show.genres}`)
+                if (show.rating.average == null) {
+                    $('#rating').append(`N/A`)
+                }
+                else{
+                    $('#rating').append(`${show.rating.average}`)
+                }
+                $('#release_date').append(`${show.premiered} to ${show.ended} `)
+                $('#summary').append(` ${show.summary} `)
             }
 
+        })
+        .fail(function() {
+            console.log("that request failed")
+        })
+}
+
+function getCasts() {
+    let showId = sessionStorage.getItem('showId');
+    $.getJSON(`https://api.tvmaze.com/shows/${showId}/cast`, function(data) {
+            console.log('casts: ', data)
+            for (let actor of data) {
+                $('#casts').append(`<div class="col-auto">
+                    <div class="bg-white rounded shadow-sm py-5 px-4">
+                    <div class="circular--portrait">
+                    <img src="${actor.person.image.medium}" />
+                    </div>
+                    <br>
+                        <h6 class="mb-0" id="actor_name">${actor.person.name}</h6><h7 id="role_name">as ${actor.character.name}</h7>
+                    </div>
+                </div>`)
+            }
         })
         .fail(function() {
             console.log("that request failed")
