@@ -13,7 +13,6 @@ function getShows(searchText) {
     $.getJSON(`https://api.tvmaze.com/search/shows?q=${searchText}`, function(data) {
             console.log('data: ', data)
             for (let i = 0; i < data.length; i++) {
-                // add some show data
                 let show = data[i].show
                 if (data[i].show.image == null) { //checks for null values
                     $('#shows').append(`<div class="col-md-3">
