@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('#searchForm').on('submit', function(e) {
         let searchText = $('#searchText').val();
         $('#shows').empty()
+        $('#scroll_section').empty()
         getShows(searchText);
         $('#scroll_section').append(`<a href="#shows_page"><span></span>see results</a>`)
         e.preventDefault();
@@ -12,6 +13,12 @@ $(document).ready(function() {
 function getShows(searchText) {
     $.getJSON(`https://api.tvmaze.com/search/shows?q=${searchText}`, function(data) {
             console.log('data: ', data)
+            if (data.length == 0){
+                $('#shows').append(`<div class="alert alert-dismissible alert-primary">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    This show is currently unavailable, please try again.
+                </div>`)
+            }
             for (let i = 0; i < data.length; i++) {
                 let show = data[i].show
                 if (data[i].show.image == null) { //checks for null values
@@ -100,7 +107,7 @@ function getCasts() {
     $.getJSON(`https://api.tvmaze.com/shows/${showId}/cast`, function(data) {
             console.log('casts: ', data)
             for (let actor of data) {
-                $('#casts').append(`<div class="col-auto">
+                $('#casts').append(`<div class="col-auto" id="cast_profile">
                     <div class="bg-white rounded shadow-sm py-5 px-4">
                     <div class="circular--portrait">
                     <img src="${actor.person.image.medium}" />

@@ -5,7 +5,7 @@ html,
     font-size: 18px;
 }
 
-x body {
+body {
     font: menu;
     font-size: 1rem;
     line-height: 1.4;
@@ -147,6 +147,10 @@ details p {
     transform: translate(-50%, -50%);
 }
 
+#cast_profile{
+    padding-top: 25px;
+}
+
 /* shows section */
 #search-bar {
     padding: 100px;
@@ -160,7 +164,7 @@ details p {
 
 /* scroll button */
 section {
-    margin-top: 25%;
+    margin-top: 24%;
     position: relative;
     width: 100%;
     height: 100%;
@@ -243,6 +247,7 @@ section {
     /* height:50%; */
 }
 
+
 .thumbnail {
     width: 500px;
 }
@@ -255,4 +260,8 @@ section {
     #shows .col-md-3 img {
         height: 240px;
     }
+}
+
+.alert{
+    padding-right:10px;
 }
